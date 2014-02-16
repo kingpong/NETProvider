@@ -56,7 +56,21 @@ namespace FirebirdSql.Data.Client.Native
 		{
 			if (string.IsNullOrEmpty(dllName))
 			{
-				dllName = DefaultDllName;
+				string wow64 = Environment.GetEnvironmentVariable("PROCESSOR_ARCHITEW6432") ?? string.Empty;
+				string pArch = Environment.GetEnvironmentVariable("PROCESSOR_ARCHITECTURE") ?? string.Empty;
+
+				string dllArch;
+				if (wow64 == "AMD64" || pArch == "x86")
+					dllArch = "x86";
+				else
+					dllArch = "amd64";
+
+				string architectureSpecificFile = dllArch + "\\fbembed.dll";
+
+				if (System.IO.File.Exists(architectureSpecificFile))
+					dllName = architectureSpecificFile;
+				else
+					dllName = DefaultDllName;
 			}
 
 			IFbClient fbClient;

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>FirebirdSql.Data.FirebirdClient.Embedded</id>
+    <version>2.5.2.26539</version>
+    <title>Firebird Embedded</title>
+    <description>Firebird Embedded Dlls to be used with Firebird ADO.NET Data provider</description>
+    <authors>FirebirdSQL</authors>
+    <owners>FirebirdSQL</owners>
+    <licenseUrl>http://firebird.svn.sourceforge.net/viewvc/firebird/NETProvider/trunk/NETProvider/license.txt</licenseUrl>
+    <projectUrl>http://www.firebirdsql.org/en/net-provider/</projectUrl>
+    <iconUrl>http://www.firebirdsql.org/file/about/ds-firebird-logo-64.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <tags>firebird firebirsql firebirdclient adonet database</tags>
+    <dependencies>
+        <dependency id="FirebirdSql.Data.FirebirdClient" version="4.1.0.0" />
+        <dependency id="NuGetPowerTools" version="0.29" />
+    </dependencies>
+  </metadata>
+  <files>
+	<!-- In order to work correctly one or more files needs to be added to the lib folder -->
+        <file src="empty" target="lib\empty" />
+
+        <file src="install.ps1" target="tools\install.ps1" />
+        <file src="uninstall.ps1" target="tools\uninstall.ps1" />
+
+        <file src="Firebird-2.5.2.26540-0_Win32_embed\**\*.conf" target="other" />
+        <!--<file src="Firebird-2.5.2.26540-0_Win32_embed\**\doc\*" target="other" />-->
+        <file src="Firebird-2.5.2.26540-0_Win32_embed\**\*.txt" target="other" />
+        <file src="Firebird-2.5.2.26540-0_Win32_embed\*License*.txt" target="" />
+
+        <file src="Firebird-2.5.2.26540-0_Win32_embed\**\*" target="NativeBinaries\x86" exclude="**\*.conf;**\doc\*;**\*.txt" />
+        <file src="Firebird-2.5.2.26540-0_x64_embed\**\*" target="NativeBinaries\amd64" exclude="**\*.conf;**\doc\*;**\*.txt" />
+  </files>
+</package>

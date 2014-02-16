@@ -403,7 +403,7 @@ namespace FirebirdSql.Data.FirebirdClient
 			this.options.Add("records affected", true);
 			this.options.Add("context connection", false);
 			this.options.Add("enlist", false);
-			this.options.Add("client library", "fbembed");
+			this.options.Add("client library", string.Empty);
 			this.options.Add("cache pages", 0);
 			this.options.Add("no db triggers", false);
 		}
